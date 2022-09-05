@@ -17,5 +17,18 @@ namespace RepasoMVCvehiculos.Controllers
             IEnumerable<VEHICULOS> lista = admin.consultar();
             return View(lista);
         }
+
+        public ActionResult Guardar()
+        {
+            ViewBag.mensaje = "";
+            return View();
+        }
+
+        public ActionResult Nuevo(VEHICULOS modelo)
+        {
+            admin.Guardar(modelo);
+            ViewBag.mensaje = "Vehiculo guardado";
+            return View("Guardar",modelo);
+        }
     }
 }

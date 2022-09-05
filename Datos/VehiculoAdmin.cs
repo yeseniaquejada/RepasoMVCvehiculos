@@ -16,5 +16,14 @@ namespace RepasoMVCvehiculos.Datos
 
             }
         }
+        //Guardar un vehiculo en la base de datos
+        public void Guardar(VEHICULOS modelo)
+        {
+            using(REPASO_DBEntities contexto = new REPASO_DBEntities())
+            {
+                contexto.VEHICULOS.Add(modelo);
+                contexto.SaveChanges();
+            }
+        }
     }
 }
